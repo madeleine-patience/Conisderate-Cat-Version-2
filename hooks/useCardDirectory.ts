@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { TarotDialogProps } from '../components/tarotDialog';
-import type { TarotCard } from './fetchTarotDeck';
 import type { CardSuitTypes } from '../pages/CardDirectoryPage';
+import type { TarotCard } from './fetchTarotDeck';
 
 const initialDialogProps: TarotDialogProps = {
   isOpen: false,
@@ -19,7 +19,7 @@ export const useCardDirectory = () => {
   const [dialogProps, setDialogProps] = useState(initialDialogProps);
   const [currentCard, setCurrentCard] = useState({});
   const [showThreeCards, setShowCards] = useState(true);
-
+  const [isGridView, setIsGridView] = useState(true);
   const displayCardSuitButtonData: { buttonLabel: CardSuitTypes }[] = [
     { buttonLabel: 'Major' },
     { buttonLabel: 'Cups' },
@@ -56,6 +56,8 @@ export const useCardDirectory = () => {
     setCurrentCard,
     displayCardSuitButtonData,
     setShowCards,
-    showThreeCards
+    showThreeCards,
+    isGridView,
+    setIsGridView
   };
 };
